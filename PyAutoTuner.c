@@ -27,7 +27,7 @@ static PyObject *Tuner(PyObject *self, PyObject *args)
 
 {
 
-	float *signal, *buffer, d2, concert_a, fixed_pitch, fixed_pull, corr_str, corr_smooth, pitch_shift, lfo_depth, lfo_rate, lfo_shape, lfo_symm, form_warp, mix;
+	float *signal, *buffer, concert_a, fixed_pitch, fixed_pull, corr_str, corr_smooth, pitch_shift, lfo_depth, lfo_rate, lfo_shape, lfo_symm, form_warp, mix;
 
 	char *key;
 
