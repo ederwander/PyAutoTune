@@ -1,7 +1,6 @@
 import sys
 import wave
 import numpy
-#import pyaudio
 import scikits.audiolab as audiolab 
 
 
