@@ -11,7 +11,7 @@
    VERSION 0.1x
    July 9, 2010
 
-   Modified by Eng Eder souza (ederwander)
+   Modified by Eng Eder Souza (ederwander)
    http://github.com/ederwander/PyAutoTune
    VERSION 0.1b
    May 18, 2012
