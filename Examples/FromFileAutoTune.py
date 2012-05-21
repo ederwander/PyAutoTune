@@ -1,11 +1,9 @@
+#Copyright (c) 2012, Eng Eder de Souza
+#AutoTune Real-time from Microphone Example!
+
 import sys
-import wave
 import numpy
 import scikits.audiolab as audiolab 
-
-
-
-
 import AutoTune
 
 FORM_CORR=0
