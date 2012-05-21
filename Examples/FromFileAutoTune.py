@@ -77,7 +77,7 @@ fmt         = audiolab.Format('wav', 'pcm32')
 
 
 
-# making the file .flac
+# making the file .wav
 afile =  audiolab.Sndfile(OUT, 'w', fmt, nchannels, FS)
 
 
