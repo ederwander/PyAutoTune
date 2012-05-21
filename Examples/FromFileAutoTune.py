@@ -1,5 +1,5 @@
 #Copyright (c) 2012, Eng Eder de Souza
-#AutoTune Real-time from Microphone Example!
+#AutoTune from Wav File Example!
 
 import sys
 import numpy
