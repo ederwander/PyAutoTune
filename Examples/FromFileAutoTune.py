@@ -39,18 +39,14 @@ OUT=sys.argv[2]
 
 
 
-#spf = wave.open(IN, 'rb')
+
 f = audiolab.Sndfile(IN, 'r')
-
-#p = pyaudio.PyAudio()
-
-#stream = p.open(format = 8, channels = spf.getnchannels(), rate = spf.getframerate(),output = True)
 
 FS = f.samplerate
 nchannels  = f.channels
 
 
-#datas = spf.readframes(CHUNK)
+
 datas = f.read_frames(CHUNK, dtype=numpy.float32)
 
 
