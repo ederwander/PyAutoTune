@@ -26,6 +26,6 @@ python setup.py install
 
 The package is imported with 'import AutoTune'.
 
-You can find two simple example (real-time and from-file) in de folder example !
+You can find two simple example (real-time and from-file) in de folder example http://github.com/ederwander/PyAutoTune/tree/master/Examples!
 
 
