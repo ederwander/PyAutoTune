@@ -18,9 +18,7 @@
 
 
 #include <Python.h>
-#include "C:\Python26\Lib\site-packages\numpy\core\include\numpy\arrayobject.h"
-
-///#include <numpy/arrayobject.h>
+#include <numpy/arrayobject.h>
 #include "mayer_fft.h"
 #include "autotalent.h"
 
