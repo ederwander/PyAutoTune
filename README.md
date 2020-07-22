@@ -44,7 +44,7 @@ Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Py
 > include_dirs= C:\Python37\Lib\site-packages\numpy\core\include
 
 
-Set the PAH to you python and mingw, ex in CMD.
+Set the PAH to you mingw and python, ex in CMD.
 
 > set PATH=C:\MinGW\bin;C:\Python37;%PATH%
 
