@@ -19,6 +19,8 @@ One C compiler
 
 NumPy 1.0 or later
 
+For Python < 2.7 use the (ForPy2X)https://github.com/ederwander/PyAutoTune/tree/master/ForPy2X codes to install
+
 ==WINDOWS INSTALLATION==
 ==========
 
