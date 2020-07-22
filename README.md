@@ -26,10 +26,12 @@ For Python < 2.7 use the [ForPy2X](https://github.com/ederwander/PyAutoTune/tree
 
 PyAutoTune is packaged as Python and C source using distutils.  To install:
 
-pip install setuptools numpy pyaudio
+> pip install setuptools numpy pyaudio
 
 Setuptools - used for compiler
+
 Numpy - used for audio arrays
+
 pyaudio - play and test code examples 
 
 Download and install one compliler, for example you can choose mingw 32 or 64 bits in windows SO
