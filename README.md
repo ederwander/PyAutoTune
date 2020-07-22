@@ -41,8 +41,8 @@ https://sourceforge.net/projects/mingw/files/latest/download
 https://sourceforge.net/projects/mingw-w64/
 
 Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Python37\Lib\distutils
-
-```[build]
+```
+[build]
 compiler=mingw32
 
 
