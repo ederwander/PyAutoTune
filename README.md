@@ -1,7 +1,7 @@
 PyAutoTune
 ==========
 
-Copyright 2012, Eng Eder de Souza
+Copyright 2012-2020, Eng Eder de Souza
 
 This module provide one Tuner function to AutoTune sound chunks in Float 32bits. Designed for autotune in
 realtime microphone or recorded file.
