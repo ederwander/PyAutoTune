@@ -19,12 +19,42 @@ One C compiler
 
 NumPy 1.0 or later
 
-==INSTALLATION==
+==WINDOWS INSTALLATION==
 ==========
 
-PyAutoTune is packaged as Python and C source using distutils.  To install, run the following command:
+PyAutoTune is packaged as Python and C source using distutils.  To install:
 
-python setup.py install
+pip install setuptools numpy pyaudio
+
+Setuptools - used for compiler
+Numpy - used for audio arrays
+pyaudio - play and test code examples 
+
+Download and install one compliler, for example you can choose mingw 32 or 64 bits in windows SO
+https://sourceforge.net/projects/mingw/files/latest/download
+https://sourceforge.net/projects/mingw-w64/
+
+Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Python37\Lib\distutils
+
+> [build]
+> compiler=mingw32
+
+
+> [build_ext]
+> include_dirs= C:\Python37\Lib\site-packages\numpy\core\include
+
+
+Set the PAH to you python and mingw, ex in CMD.
+
+set PATH=C:\MinGW\bin;C:\Python37;%PATH%
+
+if you installed mingw 64bits point the path correctly
+
+Now you're ready to compile:
+
+python.exe setup.py install
+
+
 
 ==EXAMPLES==
 ==========
