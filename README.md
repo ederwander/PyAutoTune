@@ -34,7 +34,8 @@ Numpy - used for audio arrays
 
 pyaudio - play and test code examples 
 
-Download and install one compliler, for example you can choose mingw 32 or 64 bits in windows SO
+Download and install one compliler, for example you can choose mingw 32 or 64 bits in windows SO:
+
 https://sourceforge.net/projects/mingw/files/latest/download
 
 https://sourceforge.net/projects/mingw-w64/
