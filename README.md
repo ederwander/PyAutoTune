@@ -19,7 +19,7 @@ One C compiler
 
 NumPy 1.0 or later
 
-For Python < 2.7 use the (ForPy2X)https://github.com/ederwander/PyAutoTune/tree/master/ForPy2X codes to install
+For Python < 2.7 use the [ForPy2X](https://github.com/ederwander/PyAutoTune/tree/master/ForPy2X) codes to install
 
 ==WINDOWS INSTALLATION==
 ==========
@@ -34,6 +34,7 @@ pyaudio - play and test code examples
 
 Download and install one compliler, for example you can choose mingw 32 or 64 bits in windows SO
 https://sourceforge.net/projects/mingw/files/latest/download
+
 https://sourceforge.net/projects/mingw-w64/
 
 Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Python37\Lib\distutils
