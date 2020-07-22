@@ -46,13 +46,13 @@ Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Py
 
 Set the PAH to you python and mingw, ex in CMD.
 
-set PATH=C:\MinGW\bin;C:\Python37;%PATH%
+> set PATH=C:\MinGW\bin;C:\Python37;%PATH%
 
 if you installed mingw 64bits point the path correctly
 
 Now you're ready to compile:
 
-python.exe setup.py install
+> python.exe setup.py install
 
 
 
@@ -61,6 +61,6 @@ python.exe setup.py install
 
 The package is imported with 'import AutoTune'.
 
-You can find two simple example (real-time and from-file) in the folder [examples] (http://github.com/ederwander/PyAutoTune/tree/master/Examples)!
+You can find two simple example (real-time and from-file) in the folder [examples](http://github.com/ederwander/PyAutoTune/tree/master/Examples)!
 
 
