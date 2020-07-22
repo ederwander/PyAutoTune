@@ -27,43 +27,40 @@ static PyObject *Tuner(PyObject *self, PyObject *args)
 
 {
 
-	float *signal, *buffer, concert_a, fixed_pitch, fixed_pull, corr_str, corr_smooth, pitch_shift, lfo_depth, lfo_rate, lfo_shape, lfo_symm, form_warp, mix;
-
+	float *buffer, concert_a, fixed_pitch, fixed_pull, corr_str, corr_smooth, pitch_shift, lfo_depth, lfo_rate, lfo_shape, lfo_symm, form_warp, mix;
 	char *key;
-
-	int fs, FrameSize, zz, i, scale_rotate, lfo_quant, form_corr;
-
-	PyObject *obj;
+	int fs, FrameSize, scale_rotate, lfo_quant, form_corr;
 	PyArrayObject *arr;
+	PyObject *In_object;
 
-	if (!PyArg_ParseTuple(args, "s#iiiiiffffffffffffc", &signal,&zz,&fs,&FrameSize,&scale_rotate,&lfo_quant,&form_corr,&concert_a,&fixed_pitch,&fixed_pull,&corr_str,&corr_smooth,&pitch_shift,&lfo_depth,&lfo_rate,&lfo_shape,&lfo_symm,&form_warp,&mix,&key))
+
+
+	if (!PyArg_ParseTuple(args, "Oiiiiiffffffffffffc", &In_object,&fs,&FrameSize,&scale_rotate,&lfo_quant,&form_corr,&concert_a,&fixed_pitch,&fixed_pull,&corr_str,&corr_smooth,&pitch_shift,&lfo_depth,&lfo_rate,&lfo_shape,&lfo_symm,&form_warp,&mix,&key))
 		return NULL;
+
+	npy_intp ArrLen[1]={FrameSize};
 
 	Py_BEGIN_ALLOW_THREADS;
 
 	instantiateAutotalentInstance(fs);
 
-	buffer = (float*)malloc(FrameSize*sizeof(float));
+	PyArrayObject *x_array = PyArray_FROM_OTF(In_object, NPY_FLOAT, NPY_IN_ARRAY);
+	if (x_array == NULL) {
+    		Py_XDECREF(x_array);
+    		return NULL;
+	}
 
-	if (!buffer) {
-    		printf("\nError: No memory\n");
-    		exit(1);
-  	}
-
+	buffer = (float*)PyArray_DATA(x_array);
 
 	initializeAutotalent(&concert_a, &key, &fixed_pitch, &fixed_pull, &corr_str, &corr_smooth, &pitch_shift, &scale_rotate, &lfo_depth, &lfo_rate, &lfo_shape, &lfo_symm, &lfo_quant, &form_corr, &form_warp, &mix);
 
-	for(i=0; i<FrameSize; i++) 	buffer[i] = *(signal++);
-
 	processSamples(buffer, FrameSize);
 
-	arr = (PyArrayObject *)PyArray_SimpleNewFromData(1, &FrameSize,PyArray_FLOAT,(char *) buffer);
+	arr = (PyArrayObject *)PyArray_SimpleNewFromData(1, ArrLen,NPY_FLOAT,buffer);
 
 	Py_END_ALLOW_THREADS;
 
 	return PyArray_Return(arr);
-
-	free(buffer);
 
 	*buffer = 0;
 
@@ -72,20 +69,26 @@ static PyObject *Tuner(PyObject *self, PyObject *args)
 
 }
 
-static PyObject *ErrorObject;
-
-static PyMethodDef TuneMethod[] = 
-{
-    {"Tuner", Tuner, METH_VARARGS, "AutoTune Signal"},
-    {NULL, NULL, 0, NULL}
+static PyMethodDef Tuner_methods[] = { 
+    	{   
+        	"Tuner", Tuner, METH_VARARGS,
+        	"Print 'Tuner Crazy' from a method defined in a C extension."
+    	},  
+	{NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC 
-initAutoTune(void)
-{
-	(void) Py_InitModule("AutoTune", TuneMethod);
-  	import_array();
-  	ErrorObject = PyString_FromString("AutoTune.error");
- 	if (PyErr_Occurred())
- 		Py_FatalError("can't initialize module AutoTune");
+
+static struct PyModuleDef Tuner_definition = { 
+	PyModuleDef_HEAD_INIT,
+	"Tuner",
+	"A Python module from C code.",
+	-1, 
+	Tuner_methods
+};
+
+
+PyMODINIT_FUNC PyInit_AutoTune(void) {
+	Py_Initialize();
+	import_array();
+	return PyModule_Create(&Tuner_definition);
 }
