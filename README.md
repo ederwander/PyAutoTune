@@ -42,12 +42,12 @@ https://sourceforge.net/projects/mingw-w64/
 
 Create one file distutils.cfg in your python distutils PATH instalation Ex:C:\Python37\Lib\distutils
 
-> [build]
-> compiler=mingw32
+`[build]
+compiler=mingw32
 
 
-> [build_ext]
-> include_dirs= C:\Python37\Lib\site-packages\numpy\core\include
+[build_ext]
+include_dirs= C:\Python37\Lib\site-packages\numpy\core\include`
 
 
 Set the PATH to you mingw and python, ex in CMD.
