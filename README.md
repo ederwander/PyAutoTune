@@ -47,7 +47,10 @@ compiler=mingw32
 
 
  [build_ext]
-include_dirs= C:\Python37\Lib\site-packages\numpy\core\include```
+include_dirs= C:\Python37\Lib\site-packages\numpy\core\include
+```
+
+
 
 
 Set the PATH to you mingw and python, ex in CMD.
