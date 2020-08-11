@@ -151,6 +151,58 @@ void fft_inverse(fft_vars* membvars, float* input_re, float* input_im, float* ou
 #define AT_G 10
 #define AT_Ab 11
 
+#define KEY_Ab_A -1
+#define KEY_Ab_Bb 1
+#define KEY_Ab_B -1
+#define KEY_Ab_C 1
+#define KEY_Ab_Db 1
+#define KEY_Ab_D -1
+#define KEY_Ab_Eb 1
+#define KEY_Ab_E -1
+#define KEY_Ab_F 1
+#define KEY_Ab_Gb -1
+#define KEY_Ab_G 1
+#define KEY_Ab_Ab 1
+
+#define KEY_A_A 1
+#define KEY_A_Bb -1
+#define KEY_A_B 1
+#define KEY_A_C -1
+#define KEY_A_Db 1
+#define KEY_A_D 1
+#define KEY_A_Eb -1
+#define KEY_A_E 1
+#define KEY_A_F -1
+#define KEY_A_Gb 1
+#define KEY_A_G -1
+#define KEY_A_Ab 1
+
+#define KEY_Bb_A 1
+#define KEY_Bb_Bb 1
+#define KEY_Bb_B -1
+#define KEY_Bb_C 1
+#define KEY_Bb_Db -1
+#define KEY_Bb_D 1
+#define KEY_Bb_Eb 1
+#define KEY_Bb_E -1
+#define KEY_Bb_F 1
+#define KEY_Bb_Gb -1
+#define KEY_Bb_G 1
+#define KEY_Bb_Ab -1
+
+#define KEY_B_A -1
+#define KEY_B_Bb 1
+#define KEY_B_B 1
+#define KEY_B_C -1
+#define KEY_B_Db 1
+#define KEY_B_D -1
+#define KEY_B_Eb 1
+#define KEY_B_E 1
+#define KEY_B_F -1
+#define KEY_B_Gb 1
+#define KEY_B_G -1
+#define KEY_B_Ab 1
+
 #define KEY_C_A 1
 #define KEY_C_Bb -1
 #define KEY_C_B 1
@@ -164,6 +216,19 @@ void fft_inverse(fft_vars* membvars, float* input_re, float* input_im, float* ou
 #define KEY_C_G 1
 #define KEY_C_Ab -1
 
+#define KEY_Db_A -1
+#define KEY_Db_Bb 1
+#define KEY_Db_B -1
+#define KEY_Db_C 1
+#define KEY_Db_Db 1
+#define KEY_Db_D -1
+#define KEY_Db_Eb 1
+#define KEY_Db_E -1
+#define KEY_Db_F 1
+#define KEY_Db_Gb 1
+#define KEY_Db_G -1
+#define KEY_Db_Ab 1
+
 #define KEY_D_A 1
 #define KEY_D_Bb -1
 #define KEY_D_B 1
@@ -176,6 +241,85 @@ void fft_inverse(fft_vars* membvars, float* input_re, float* input_im, float* ou
 #define KEY_D_Gb 1
 #define KEY_D_G 1
 #define KEY_D_Ab -1
+
+#define KEY_Eb_A -1
+#define KEY_Eb_Bb 1
+#define KEY_Eb_B -1
+#define KEY_Eb_C 1
+#define KEY_Eb_Db -1
+#define KEY_Eb_D 1
+#define KEY_Eb_Eb 1
+#define KEY_Eb_E -1
+#define KEY_Eb_F 1
+#define KEY_Eb_Gb -1
+#define KEY_Eb_G 1
+#define KEY_Eb_Ab 1
+
+#define KEY_E_A 1
+#define KEY_E_Bb -1
+#define KEY_E_B 1
+#define KEY_E_C -1
+#define KEY_E_Db 1
+#define KEY_E_D -1
+#define KEY_E_Eb 1
+#define KEY_E_E 1
+#define KEY_E_F -1
+#define KEY_E_Gb 1
+#define KEY_E_G -1
+#define KEY_E_Ab 1
+
+#define KEY_F_A 1
+#define KEY_F_Bb 1
+#define KEY_F_B -1
+#define KEY_F_C 1
+#define KEY_F_Db -1
+#define KEY_F_D 1
+#define KEY_F_Eb -1
+#define KEY_F_E 1
+#define KEY_F_F 1
+#define KEY_F_Gb -1
+#define KEY_F_G 1
+#define KEY_F_Ab -1
+
+#define KEY_Gb_A -1
+#define KEY_Gb_Bb 1
+#define KEY_Gb_B 1
+#define KEY_Gb_C -1
+#define KEY_Gb_Db 1
+#define KEY_Gb_D -1
+#define KEY_Gb_Eb 1
+#define KEY_Gb_E -1
+#define KEY_Gb_F 1
+#define KEY_Gb_Gb 1
+#define KEY_Gb_G -1
+#define KEY_Gb_Ab 1
+
+#define KEY_G_A 1
+#define KEY_G_Bb -1
+#define KEY_G_B 1
+#define KEY_G_C 1
+#define KEY_G_Db -1
+#define KEY_G_D 1
+#define KEY_G_Eb -1
+#define KEY_G_E 1
+#define KEY_G_F -1
+#define KEY_G_Gb 1
+#define KEY_G_G 1
+#define KEY_G_Ab -1
+
+// chromatic scale, X because it's unique
+#define KEY_X_A 1
+#define KEY_X_Bb 1
+#define KEY_X_B 1
+#define KEY_X_C 1
+#define KEY_X_Db 1
+#define KEY_X_D 1
+#define KEY_X_Eb 1
+#define KEY_X_E 1
+#define KEY_X_F 1
+#define KEY_X_Gb 1
+#define KEY_X_G 1
+#define KEY_X_Ab 1
 
 
   /*************************
@@ -415,34 +559,188 @@ void setAutotalentKey(Autotalent * autotalent, char * keyPtr) {
   key = calloc(12, sizeof(int));
 
   switch (*keyPtr) {
-    case 'c':
-      key[AT_A] = KEY_C_A;
-      key[AT_Bb] = KEY_C_Bb;
-      key[AT_B] = KEY_C_B;
-      key[AT_C] = KEY_C_C;
-      key[AT_Db] = KEY_C_Db;
-      key[AT_D] = KEY_C_D;
-      key[AT_Eb] = KEY_C_Eb;
-      key[AT_E] = KEY_C_E;
-      key[AT_F] = KEY_C_F;
-      key[AT_Gb] = KEY_C_Gb;
-      key[AT_G] = KEY_C_G;
-      key[AT_Ab] = KEY_C_Ab;
-	  break;
-    case 'd':
-      key[AT_A] = KEY_D_A;
-	  key[AT_Bb] = KEY_D_Bb;
-	  key[AT_B] = KEY_D_B;
-	  key[AT_C] = KEY_D_C;
-	  key[AT_Db] = KEY_D_Db;
-	  key[AT_D] = KEY_D_D;
-	  key[AT_Eb] = KEY_D_Eb;
-	  key[AT_E] = KEY_D_E;
-	  key[AT_F] = KEY_D_F;
-	  key[AT_Gb] = KEY_D_Gb;
-	  key[AT_G] = KEY_D_G;
-	  key[AT_Ab] = KEY_D_Ab;
-      break;
+    case 'a':
+		key[AT_A] = KEY_Ab_A;
+		key[AT_Bb] = KEY_Ab_Bb;
+		key[AT_B] = KEY_Ab_B;
+		key[AT_C] = KEY_Ab_C;
+		key[AT_Db] = KEY_Ab_Db;
+		key[AT_D] = KEY_Ab_D;
+		key[AT_Eb] = KEY_Ab_Eb;
+		key[AT_E] = KEY_Ab_E;
+		key[AT_F] = KEY_Ab_F;
+		key[AT_Gb] = KEY_Ab_Gb;
+		key[AT_G] = KEY_Ab_G;
+		key[AT_Ab] = KEY_Ab_Ab;
+		break;
+	case 'A':
+		key[AT_A] = KEY_A_A;
+		key[AT_Bb] = KEY_A_Bb;
+		key[AT_B] = KEY_A_B;
+		key[AT_C] = KEY_A_C;
+		key[AT_Db] = KEY_A_Db;
+		key[AT_D] = KEY_A_D;
+		key[AT_Eb] = KEY_A_Eb;
+		key[AT_E] = KEY_A_E;
+		key[AT_F] = KEY_A_F;
+		key[AT_Gb] = KEY_A_Gb;
+		key[AT_G] = KEY_A_G;
+		key[AT_Ab] = KEY_A_Ab;
+		break;
+	case 'b':
+		key[AT_A] = KEY_Bb_A;
+		key[AT_Bb] = KEY_Bb_Bb;
+		key[AT_B] = KEY_Bb_B;
+		key[AT_C] = KEY_Bb_C;
+		key[AT_Db] = KEY_Bb_Db;
+		key[AT_D] = KEY_Bb_D;
+		key[AT_Eb] = KEY_Bb_Eb;
+		key[AT_E] = KEY_Bb_E;
+		key[AT_F] = KEY_Bb_F;
+		key[AT_Gb] = KEY_Bb_Gb;
+		key[AT_G] = KEY_Bb_G;
+		key[AT_Ab] = KEY_Bb_Ab;
+		break;
+	case 'B':
+		key[AT_A] = KEY_B_A;
+		key[AT_Bb] = KEY_B_Bb;
+		key[AT_B] = KEY_B_B;
+		key[AT_C] = KEY_B_C;
+		key[AT_Db] = KEY_B_Db;
+		key[AT_D] = KEY_B_D;
+		key[AT_Eb] = KEY_B_Eb;
+		key[AT_E] = KEY_B_E;
+		key[AT_F] = KEY_B_F;
+		key[AT_Gb] = KEY_B_Gb;
+		key[AT_G] = KEY_B_G;
+		key[AT_Ab] = KEY_B_Ab;
+		break;
+	case 'C':
+		key[AT_A] = KEY_C_A;
+		key[AT_Bb] = KEY_C_Bb;
+		key[AT_B] = KEY_C_B;
+		key[AT_C] = KEY_C_C;
+		key[AT_Db] = KEY_C_Db;
+		key[AT_D] = KEY_C_D;
+		key[AT_Eb] = KEY_C_Eb;
+		key[AT_E] = KEY_C_E;
+		key[AT_F] = KEY_C_F;
+		key[AT_Gb] = KEY_C_Gb;
+		key[AT_G] = KEY_C_G;
+		key[AT_Ab] = KEY_C_Ab;
+		break;
+	case 'd':
+		key[AT_A] = KEY_Db_A;
+		key[AT_Bb] = KEY_Db_Bb;
+		key[AT_B] = KEY_Db_B;
+		key[AT_C] = KEY_Db_C;
+		key[AT_Db] = KEY_Db_Db;
+		key[AT_D] = KEY_Db_D;
+		key[AT_Eb] = KEY_Db_Eb;
+		key[AT_E] = KEY_Db_E;
+		key[AT_F] = KEY_Db_F;
+		key[AT_Gb] = KEY_Db_Gb;
+		key[AT_G] = KEY_Db_G;
+		key[AT_Ab] = KEY_Db_Ab;
+		break;
+	case 'D':
+		key[AT_A] = KEY_D_A;
+		key[AT_Bb] = KEY_D_Bb;
+		key[AT_B] = KEY_D_B;
+		key[AT_C] = KEY_D_C;
+		key[AT_Db] = KEY_D_Db;
+		key[AT_D] = KEY_D_D;
+		key[AT_Eb] = KEY_D_Eb;
+		key[AT_E] = KEY_D_E;
+		key[AT_F] = KEY_D_F;
+		key[AT_Gb] = KEY_D_Gb;
+		key[AT_G] = KEY_D_G;
+		key[AT_Ab] = KEY_D_Ab;
+		break;
+	case 'e':
+		key[AT_A] = KEY_Eb_A;
+		key[AT_Bb] = KEY_Eb_Bb;
+		key[AT_B] = KEY_Eb_B;
+		key[AT_C] = KEY_Eb_C;
+		key[AT_Db] = KEY_Eb_Db;
+		key[AT_D] = KEY_Eb_D;
+		key[AT_Eb] = KEY_Eb_Eb;
+		key[AT_E] = KEY_Eb_E;
+		key[AT_F] = KEY_Eb_F;
+		key[AT_Gb] = KEY_Eb_Gb;
+		key[AT_G] = KEY_Eb_G;
+		key[AT_Ab] = KEY_Eb_Ab;
+		break;
+	case 'E':
+		key[AT_A] = KEY_E_A;
+		key[AT_Bb] = KEY_E_Bb;
+		key[AT_B] = KEY_E_B;
+		key[AT_C] = KEY_E_C;
+		key[AT_Db] = KEY_E_Db;
+		key[AT_D] = KEY_E_D;
+		key[AT_Eb] = KEY_E_Eb;
+		key[AT_E] = KEY_E_E;
+		key[AT_F] = KEY_E_F;
+		key[AT_Gb] = KEY_E_Gb;
+		key[AT_G] = KEY_E_G;
+		key[AT_Ab] = KEY_E_Ab;
+		break;
+	case 'F':
+		key[AT_A] = KEY_F_A;
+		key[AT_Bb] = KEY_F_Bb;
+		key[AT_B] = KEY_F_B;
+		key[AT_C] = KEY_F_C;
+		key[AT_Db] = KEY_F_Db;
+		key[AT_D] = KEY_F_D;
+		key[AT_Eb] = KEY_F_Eb;
+		key[AT_E] = KEY_F_E;
+		key[AT_F] = KEY_F_F;
+		key[AT_Gb] = KEY_F_Gb;
+		key[AT_G] = KEY_F_G;
+		key[AT_Ab] = KEY_F_Ab;
+		break;
+	case 'g':
+		key[AT_A] = KEY_Gb_A;
+		key[AT_Bb] = KEY_Gb_Bb;
+		key[AT_B] = KEY_Gb_B;
+		key[AT_C] = KEY_Gb_C;
+		key[AT_Db] = KEY_Gb_Db;
+		key[AT_D] = KEY_Gb_D;
+		key[AT_Eb] = KEY_Gb_Eb;
+		key[AT_E] = KEY_Gb_E;
+		key[AT_F] = KEY_Gb_F;
+		key[AT_Gb] = KEY_Gb_Gb;
+		key[AT_G] = KEY_Gb_G;
+		key[AT_Ab] = KEY_Gb_Ab;
+		break;
+	case 'G':
+		key[AT_A] = KEY_G_A;
+		key[AT_Bb] = KEY_G_Bb;
+		key[AT_B] = KEY_G_B;
+		key[AT_C] = KEY_G_C;
+		key[AT_Db] = KEY_G_Db;
+		key[AT_D] = KEY_G_D;
+		key[AT_Eb] = KEY_G_Eb;
+		key[AT_E] = KEY_G_E;
+		key[AT_F] = KEY_G_F;
+		key[AT_Gb] = KEY_G_Gb;
+		key[AT_G] = KEY_G_G;
+		key[AT_Ab] = KEY_G_Ab;
+		break;
+	case 'X':
+		key[AT_A] = KEY_X_A;
+		key[AT_Bb] = KEY_X_Bb;
+		key[AT_B] = KEY_X_B;
+		key[AT_C] = KEY_X_C;
+		key[AT_Db] = KEY_X_Db;
+		key[AT_D] = KEY_X_D;
+		key[AT_Eb] = KEY_X_Eb;
+		key[AT_E] = KEY_X_E;
+		key[AT_F] = KEY_X_F;
+		key[AT_Gb] = KEY_X_Gb;
+		key[AT_G] = KEY_X_G;
+		key[AT_Ab] = KEY_X_Ab;
+		break;
   }
 
   autotalent->m_pfKey = key;
