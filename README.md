@@ -64,6 +64,27 @@ Now you're ready to compile:
 > python.exe setup.py install
 
 
+==RUNNING IN DOCKER==
+==========
+Build docker image: (you can replace `autotune` with any name)
+```
+docker build -t autotune .
+```
+
+Run a container using created image:  
+`--rm` removes container when it stopped  
+`-v` flag can be used to map `Examples` folder on host filesystem to `Examples` folder in the container. You can add audio files on host machine and edit autotune parameters in `Examples/TuneAndSaveToFile.py` in editor. Output file will also available on host filesystem.
+
+```
+docker run --rm -v $PWD/Examples:/app/Examples -it autotune /bin/sh
+```
+
+Run example:
+
+```
+cd Examples
+python TuneAndSaveToFile.py teste.wav out.wav
+```
 
 ==EXAMPLES==
 ==========
